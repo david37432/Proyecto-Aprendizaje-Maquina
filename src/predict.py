@@ -1,18 +1,75 @@
+# src/predict.py
+
 import joblib
 import pandas as pd
+import json
+import os
 
-class DiabetesPredictor:
-    """Usa el modelo guardado para hacer predicciones."""
+from sklearn.metrics import accuracy_score, f1_score, classification_report, confusion_matrix
 
-    def __init__(self):
-        self.modelo = joblib.load("models/modelo_diabetes.joblib")
+# -------------------------
+# 1. Cargar datos
+# -------------------------
+df = pd.read_pickle('../data/prepared/datos_df.pkl')
 
-    def predecir(self, datos_usuario):
-        df = pd.DataFrame([datos_usuario])
-        prob = self.modelo.predict_proba(df)[0][1]
-        pred = self.modelo.predict(df)[0]
+# -------------------------
+# 2. Cargar features usadas
+# -------------------------
+with open("../models/features.json", "r") as f:
+    features = json.load(f)
 
-        resultado = "Diabetes" if pred == 1 else "No diabetes"
-        print(f"Resultado: {resultado} (Probabilidad: {prob:.2%})")
+X = df[features]
+y = df["stress_category"]
 
-        return resultado, prob
+# -------------------------
+# 3. Cargar modelos
+# -------------------------
+models = {
+    "logistic_regression": joblib.load("../models/logistic_regression.joblib"),
+    "gaussian_nb": joblib.load("../models/gaussian_nb.joblib"),
+    "sgd_classifier": joblib.load("../models/sgd_classifier.joblib")
+}
+
+scaler = joblib.load("../models/scaler.joblib")
+
+# -------------------------
+# 4. Evaluación
+# -------------------------
+results = {}
+
+for name, model in models.items():
+
+    if name in ["logistic_regression", "sgd_classifier"]:
+        X_input = scaler.transform(X)
+    else:
+        X_input = X
+
+    preds = model.predict(X_input)
+
+    acc = accuracy_score(y, preds)
+    f1 = f1_score(y, preds, average="weighted")
+
+    results[name] = {
+        "accuracy": acc,
+        "f1_score": f1
+    }
+
+    print(f"\n🔹 Modelo: {name}")
+    print(f"Accuracy: {acc:.4f}")
+    print(f"F1 Score: {f1:.4f}")
+
+    print("\nClassification Report:")
+    print(classification_report(y, preds))
+
+    print("\nConfusion Matrix:")
+    print(confusion_matrix(y, preds))
+
+# -------------------------
+# 5. Guardar métricas
+# -------------------------
+os.makedirs("../reports", exist_ok=True)
+
+with open("../reports/predict_metrics.json", "w") as f:
+    json.dump(results, f, indent=4)
+
+print("\n✅ Métricas guardadas en ../reports/predict_metrics.json")

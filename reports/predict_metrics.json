@@ -1,0 +1,14 @@
+{
+    "logistic_regression": {
+        "accuracy": 0.51,
+        "f1_score": 0.501639945079564
+    },
+    "gaussian_nb": {
+        "accuracy": 0.50675,
+        "f1_score": 0.4976111914612572
+    },
+    "sgd_classifier": {
+        "accuracy": 0.50385,
+        "f1_score": 0.5028746133768094
+    }
+}
