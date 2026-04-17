@@ -160,3 +160,6 @@ Adicionalmente, se reconoce que:
 - Existe un riesgo de interpretación errónea si se asumen capacidades predictivas que el modelo no posee, por lo que se enfatiza la importancia de validar siempre los resultados antes de su aplicación.
 
 En este sentido, el proyecto adopta un enfoque responsable, transparente y crítico frente al uso tanto de datos como de herramientas de inteligencia artificial.
+
+#### Presentacion Canva
+https://canva.link/ws24d738gkdmygd
