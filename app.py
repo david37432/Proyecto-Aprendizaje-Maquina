@@ -465,12 +465,13 @@ proyecto-aprendizaje-maquina/
 ## ▶️ Flujo del proyecto
 
 ```
-1. Carga y comprensión de datos   →  data_loader.py  +  notebooks
-2. Preprocesamiento               →  preprocessing.py
-3. Entrenamiento de modelos       →  train_model.py
-4. Predicción                     →  predict.py
-5. Evaluación y métricas          →  evaluate.py
-6. Despliegue                     →  app.py  (streamlit run app.py)
+1. Instalar dependencias "pip install -r ./config/requirements.txt
+2. Carga y comprensión de datos   →  data_loader.py  +  notebooks
+3. Preprocesamiento               →  preprocessing.py
+4. Entrenamiento de modelos       →  train_model.py
+5. Predicción                     →  predict.py
+6. Evaluación y métricas          →  evaluate.py
+7. Despliegue                     →  app.py  (streamlit run app.py)
 ```
 """)
 
