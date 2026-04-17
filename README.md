@@ -110,4 +110,38 @@ proyecto-aprendizaje-maquina/
     └── 2.ComprensionDatos.ipynb
 ```
 ## Instrucciones de ejecución 
-## Resultados principales 
+```
+1. Instalar dependencias "pip install -r ./config/requirements.txt
+2. Ejecutar piplene main.py para procesar datos, entrenar modelos y generar reportes
+3. Despliegue                     →  app.py  (streamlit run app.py)
+```
+## Evaluación de Modelos y Capacidad Predictiva
+
+Durante la fase de modelado se evaluó la capacidad del dataset para predecir la variable objetivo **nivel de estrés (Stress Level)** utilizando distintos algoritmos de clasificación, entre ellos Regresión Logística, Gaussian Naive Bayes y SGD Classifier.
+
+### Resultados obtenidos
+
+| Modelo                 | Accuracy | F1 Score |
+|----------------------|----------|----------|
+| 🏆 Regresión Logística | 0.51     | 0.5016   |
+| Gaussian Naive Bayes | 0.5068   | 0.4976   |
+| SGD Classifier       | 0.5009   | 0.4036   |
+
+### Análisis de resultados
+
+A partir de estas métricas, se observa que todos los modelos presentan desempeños cercanos al azar (accuracy ≈ 0.5), lo cual indica una **baja capacidad predictiva del dataset respecto a la variable Stress Level**. Adicionalmente, los valores de F1 Score refuerzan esta conclusión, evidenciando un equilibrio deficiente entre precisión y recall.
+
+Este comportamiento sugiere que las variables disponibles no contienen suficiente información relevante o patrones discriminativos que permitan modelar adecuadamente el nivel de estrés.
+
+En contraste, durante el análisis exploratorio inicial se identificó que la variable **Productivity Score** presentaba correlaciones más significativas con varias características del dataset, lo que indicaba un mayor potencial predictivo.
+
+### Conclusiones
+
+- El dataset **no es adecuado para predecir el nivel de estrés** con los atributos actuales.
+- Existe una **limitación en la representatividad o calidad de las variables explicativas** respecto a esta variable objetivo.
+- La selección de la variable objetivo es un factor crítico en el desempeño del modelo, incluso más determinante que el algoritmo utilizado.
+
+### Recomendaciones
+
+- Reorientar el problema hacia variables con mayor capacidad predictiva, como **Productivity Score**.
+- Enriquecer el dataset con nuevas variables que capturen de manera más directa los factores asociados al estrés.

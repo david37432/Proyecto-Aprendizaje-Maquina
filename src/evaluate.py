@@ -2,6 +2,7 @@ import os
 import json
 import joblib
 import pandas as pd
+os.environ["MPLBACKEND"] = "Agg"
 import matplotlib.pyplot as plt
 import seaborn as sns
 
