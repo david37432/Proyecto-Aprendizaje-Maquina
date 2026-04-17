@@ -145,3 +145,18 @@ En contraste, durante el análisis exploratorio inicial se identificó que la va
 
 - Reorientar el problema hacia variables con mayor capacidad predictiva, como **Productivity Score**.
 - Enriquecer el dataset con nuevas variables que capturen de manera más directa los factores asociados al estrés.
+
+## Consideraciones Éticas
+
+El desarrollo de este proyecto se apoyó en herramientas de inteligencia artificial como asistencia en tareas de análisis, generación de código y estructuración de soluciones. Sin embargo, es importante aclarar que:
+
+- Todo el código fue **revisado, adaptado y validado manualmente**, asegurando su correcta integración y funcionamiento dentro del contexto del proyecto.
+- Las decisiones metodológicas, selección de variables, interpretación de resultados y conclusiones fueron realizadas bajo **criterio humano**, con base en principios de análisis de datos y machine learning.
+- El uso de herramientas de IA se limitó a ser un **apoyo técnico**, no un sustituto del razonamiento crítico ni del proceso de aprendizaje.
+
+Adicionalmente, se reconoce que:
+
+- Los modelos desarrollados no deben utilizarse para la toma de decisiones reales relacionadas con el bienestar o salud de personas, dado que la variable de estrés no pudo ser modelada de manera confiable.
+- Existe un riesgo de interpretación errónea si se asumen capacidades predictivas que el modelo no posee, por lo que se enfatiza la importancia de validar siempre los resultados antes de su aplicación.
+
+En este sentido, el proyecto adopta un enfoque responsable, transparente y crítico frente al uso tanto de datos como de herramientas de inteligencia artificial.
